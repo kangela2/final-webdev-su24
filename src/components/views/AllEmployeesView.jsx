@@ -9,3 +9,5 @@ function AllEmployeesView(props) {
     );
 
 }
+
+export default AllEmployeesView;
