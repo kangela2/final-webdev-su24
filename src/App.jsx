@@ -1,15 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React from 'react'
+import AllEmployeesContainer from './components/containers/AllEmployeesContainer';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <p1> test</p1>
+    <AllEmployeesContainer/>
   );
 }
 
 export default App
-ß
