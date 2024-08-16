@@ -1,10 +1,20 @@
-import AllEmployeesView from "../views/AllEmployeesView"; //whatever you call it in the prop (employees) you have to name it in the view { AllEmployeesView }
-// originally had {} ^ but took them away bc it was fro barrel file from AllInstructorsContainers ref 
+import AllEmployeesView from "../views/AllEmployeesView";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchEmployees } from "../../store/employeesSlice";
+
 function AllEmployeesContainer() {
-    let employees = [{id: 314, name: "Angela"}, {id: 718, name: "Euler"} ]; //eventually employees array exist and sent to AllEmployeesView 
-    return(
-        <AllEmployeesView employees={employees} /> //via employees property
+    const employees = useSelector((state) => state.employees);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchEmployees());
+      }, [dispatch]);
+    
+    return (
+       <AllEmployeesView employees={employees} />
     );
+
 }
 
 export default AllEmployeesContainer;
