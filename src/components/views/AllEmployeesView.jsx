@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-function AllEmployeesView(employees) {
+function AllEmployeesView({employees}) {
   if (!employees.length) {
     return (
-        <div>There are no employees.</div>
+      <div>There are no employees.</div>
     );
   }
   return (
