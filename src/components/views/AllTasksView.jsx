@@ -38,7 +38,7 @@ function AllTasksView({tasks, deleteTask}) {
           let styleBool = idx === tasks.length - 1 ? liStyleLastChild : liStyle;
           return (
             <div key={todo.id} style={styleBool}>
-              <h4>Task #{idx+1}:  <Link to={`/tasks/${todo.id}`}>{todo.content}</Link></h4>
+              <h4>Task #{idx+1}:  <Link to={`/tasks/${todo.id}`}>{todo.description}</Link></h4>
               <h5>Assigned to: Employee {todo.employeeId}</h5>
               <h5>{todo.completed ? "COMPLETED" : "IN PROGRESS"}</h5>
               <button onClick={() => deleteTask(todo.id)}>Delete</button>
