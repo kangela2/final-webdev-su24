@@ -5,6 +5,8 @@ export function tasksReducer(state = initialState, action) {
     switch (action.type) {
       case 'tasks/tasksLoaded':
         return action.payload;
+      case 'tasks/taskDeleted':
+        return state.filter(task => task.id!==action.payload);
       default:
         return state;
     }
