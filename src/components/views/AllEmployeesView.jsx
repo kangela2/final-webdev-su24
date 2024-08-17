@@ -10,6 +10,7 @@ function AllEmployeesView({employees}) {
     <>
       <ul>
         {employees.map((user, idx) => (
+          //link to single employee like in allTaskView need route in src/main.jsx
           <li key={user.id}>Employee #{idx+1}: {user.firstname}</li> //changed so can extract it from database
         ))}
       </ul>

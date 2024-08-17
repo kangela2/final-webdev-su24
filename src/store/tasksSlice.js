@@ -21,16 +21,14 @@ export function tasksReducer(state = initialState, action) {
 //API calls go here
 import axios from "axios";
 //PATH (should be where your server is running)
-const PATH = "http://localhost:5001/api";
+const PATH = "http://localhost:5001/api/tasks";
 
 //Thunks
 
-//Get all tasks
+/* GET ALL TASKS */
 export const fetchTasks = () => async (dispatch) => {
   try {
-    // let res = await axios.get(`${PATH}/employees`);
-    // dispatch({type: 'employees/employeesLoaded', payload: res.data});
-    let res = await axios.get(`${PATH}/tasks`);
+    let res = await axios.get(`${PATH}`);
     dispatch({type: 'tasks/tasksLoaded', payload: res.data});
   } catch(err) {
     console.error(err);
