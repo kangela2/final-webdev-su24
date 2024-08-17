@@ -8,13 +8,13 @@ function AllTasksContainer() {
     const dispatch = useDispatch();
 
     const deleteDispatch = (taskID) => dispatch(deleteTask(taskID));
-    
+
     useEffect(() => {
         dispatch(fetchTasks());
       }, [dispatch]);
 
     return (
-       <AllTasksView tasks={tasks} />
+       <AllTasksView tasks={tasks} deleteTask={deleteDispatch}/>
     );
 
 }
