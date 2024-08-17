@@ -5,6 +5,7 @@ import App from './App.jsx';
 import AllEmployeesContainer from './components/containers/AllEmployeesContainer.jsx';
 // import SingleEmployeeContainer from './components/containers/SingleEmployeeContainer.jsx';
 
+import NewTaskContainer from './components/containers/NewTaskContainer.jsx';
 import AllTasksContainer from './components/containers/AllTasksContainer.jsx';
 import SingleTaskContainer from './components/containers/SingleTaskContainer.jsx';
 import './index.css';
@@ -23,6 +24,8 @@ const router = createBrowserRouter([
     path: "/employees",
     element: <AllEmployeesContainer />,
   },
+
+  //similar to singleTask for single employee container
   {
     path: "/tasks",
     element: <AllTasksContainer />,
@@ -30,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/tasks/:taskId",
     element: <SingleTaskContainer />,
+  },
+  {
+    path: "/tasks/new",
+    element: <NewTaskContainer />,
   },
 ]);
 
