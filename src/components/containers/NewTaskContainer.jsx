@@ -32,10 +32,15 @@ function NewTaskContainer() {
             alert("Please select an employee.");
             return;
           }
+
+          if (!formJson.priority) {
+            alert("Please select priority.");
+            return;
+          }
           
             const newTask = {
             description: formJson.description.trim(),
-            priority: parseInt(formJson.priority),
+            priority: formJson.priority,
             employeeId: JSON.parse(formJson.employeeId)
           };
           
