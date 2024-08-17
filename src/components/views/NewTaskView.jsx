@@ -18,7 +18,7 @@ function NewTaskView({ handleSubmit, employees }) {
     let selectEmployee = (
       <label> Assign employee:
         <select name="employeeId" defaultValue="null">
-          <option value="null">None</option>
+          <option value="null">Unassigned</option>
           {employees.map(emp => {
             let name = emp.firstname + " " + emp.lastname;
             return <option key={emp.id} value={emp.id}>{name}</option>;
