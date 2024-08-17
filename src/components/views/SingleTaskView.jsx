@@ -6,10 +6,10 @@ function SingleTaskView({task}) {
           </section>
         );
       }
-
+      
       return (
         <section>
-          <article className="task">
+          <article>
             <h2>{task.description}</h2>
             <h3>Task assigned to Employee: {task.employeeId}</h3>
             <h4>Priority: {task.priority}</h4>
