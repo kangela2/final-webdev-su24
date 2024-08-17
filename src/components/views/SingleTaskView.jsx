@@ -10,8 +10,8 @@ function SingleTaskView({task}) {
       return (
         <section>
           <article className="task">
-            <h2>{task.title}</h2>
-            <p className="task-title">{task.title}</p>
+            <h2>{task.content}</h2>
+            <p className="task-title">{task.content}</p>
           </article>
         </section>
       );
