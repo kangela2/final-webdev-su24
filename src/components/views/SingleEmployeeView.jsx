@@ -5,6 +5,7 @@ function SingleEmployeeView({employee}) {
     return (
       <section>
         <h2>Employee not found!</h2>
+        <Link to={`/`}><button>Back to Home</button></Link>
       </section>
     );
   }

@@ -4,12 +4,13 @@ function SingleTaskView({ task, employees, handleSubmit}) {    if (!task) {
         return (
           <section>
             <h2>Task not found!</h2>
+            <Link to={`/`}><button>Back to Home</button></Link>
           </section>
         );
       }
 
       let employeeAssigned = task.employee ? 
-        <Link to={`../employees`}>{task.employee.firstname + " " + task.employee.lastname}</Link>
+        <Link to={`../employees/${task.employee.id}`}>{task.employee.firstname + " " + task.employee.lastname}</Link>
         : "Unassigned";
 
       return (
