@@ -34,6 +34,7 @@ function SingleEmployeeView({employee}) {
         </article>
       </section>
       <hr/>
+      <Link to={`edit/`}><h3>Edit employee information</h3></Link>
     </div>
   );
 }

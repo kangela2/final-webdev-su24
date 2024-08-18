@@ -60,7 +60,7 @@ export const editEmployee = employee => async dispatch => {
   try {
     let res = await axios.put(`${PATH}/${employee.id}`, employee);
     //res.data is the updated course
-    dispatch({type: 'tasks/taskUpdated', payload: res.data});
+    dispatch({type: 'employees/employeesUpdated', payload: res.data});
   } catch(err) {
     console.error(err);
   }
