@@ -5,8 +5,10 @@ export function employeesReducer(state = initialState, action) {
     switch (action.type) {
       case 'employees/employeesLoaded':
         return action.payload;
-        case 'employees/employeesCreated':
+      case 'employees/employeesCreated':
           return [...state, action.payload];
+      case 'employees/employeesDeleted':
+          return state.filter(employee => employee.id!==action.payload);
       default:
         return state;
     }
@@ -15,12 +17,12 @@ export function employeesReducer(state = initialState, action) {
 //API calls go here
 import axios from "axios";
 //PATH (should be where your server is running)
-const PATH = "http://localhost:5001/api/";
+const PATH = "http://localhost:5001/api/employees";
 
 //Thunk 
 export const fetchEmployees = () => async (dispatch) => {
   try {
-    let res = await axios.get(`${PATH}/employees`);
+    let res = await axios.get(`${PATH}`);
     dispatch({type: 'employees/employeesLoaded', payload: res.data});
   } catch(err) {
     console.error(err);
@@ -30,7 +32,7 @@ export const fetchEmployees = () => async (dispatch) => {
 /* ADD EMPLOYEE */
 export const addEmployee = employee => async (dispatch) => {
   try {
-    let res = await axios.post(`${PATH}/employees`, employee);
+    let res = await axios.post(`${PATH}`, employee);
     dispatch({type: 'employees/employeeCreated', payload: res.data});
     return res.data;
   } catch(err) {
@@ -38,6 +40,13 @@ export const addEmployee = employee => async (dispatch) => {
   }
 };
 
-//Write a sub-reducer to manage employees in your Redux store 
-//everything will be there in backend but need to know how to use the thunks and add things. 
-//Already set up but need to add to the reducers for in EmployeeSlice.js. Thunk for adding a task and editing a task
+/* DELETE TASK */
+export const deleteEmployee = employeeId => async dispatch => {
+  try {
+    await axios.delete(`${PATH}/${employeeId}`);
+    //delete succesful so change state with dispatch
+    dispatch({type: 'employees/employeesDeleted', payload: employeeId});
+  } catch(err) {
+    console.error(err);
+  }
+};
