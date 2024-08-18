@@ -26,6 +26,7 @@ function AllEmployeesView({employees}) {
     return (
       <>
       <Link to={`/`}><button>Back to Home</button></Link>
+      <Link to={`/employees/new`}><button>Add Employee</button></Link>
       <div>There are no employees.</div>
       </>
     );
@@ -44,6 +45,8 @@ function AllEmployeesView({employees}) {
         ))}
       </ul>
       <Link to={`/`}><button>Back to Home</button></Link>
+      <Link to={`/employees/new`}><button>Add Employee</button></Link>
+
     </>
   );
 

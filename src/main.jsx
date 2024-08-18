@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import AllEmployeesContainer from './components/containers/AllEmployeesContainer.jsx';
 import SingleEmployeeContainer from './components/containers/SingleEmployeeContainer.jsx';
+import NewEmployeeContainer from './components/containers/NewEmployeeContainer.jsx';
+
 import NewTaskContainer from './components/containers/NewTaskContainer.jsx';
 import AllTasksContainer from './components/containers/AllTasksContainer.jsx';
 import SingleTaskContainer from './components/containers/SingleTaskContainer.jsx';
@@ -26,9 +28,14 @@ const router = createBrowserRouter([
     element: <AllEmployeesContainer />,
   },
   {
-    path: "/employees/:employeeId",
-    element: <SingleEmployeeContainer />,
+    path: "/employees/new",
+    element: <NewEmployeeContainer />,
   },
+  {
+   path: "/employees/:employeeId",
+    element: <SingleEmployeeContainer />,
+   },
+  
 
   {
     path: "/tasks",
