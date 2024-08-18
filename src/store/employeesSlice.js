@@ -9,6 +9,10 @@ export function employeesReducer(state = initialState, action) {
           return [...state, action.payload];
       case 'employees/employeesDeleted':
           return state.filter(employee => employee.id!==action.payload);
+      case 'employees/employeesUpdated':
+        return state.map(task => 
+          employee.id===action.payload.id ? action.payload : employee
+            );
       default:
         return state;
     }
@@ -40,12 +44,23 @@ export const addEmployee = employee => async (dispatch) => {
   }
 };
 
-/* DELETE TASK */
+/* DELETE EMPLOYEE */
 export const deleteEmployee = employeeId => async dispatch => {
   try {
     await axios.delete(`${PATH}/${employeeId}`);
     //delete succesful so change state with dispatch
     dispatch({type: 'employees/employeesDeleted', payload: employeeId});
+  } catch(err) {
+    console.error(err);
+  }
+};
+
+/* EDIT EMPLOYEE */
+export const editEmployee = employee => async dispatch => {
+  try {
+    let res = await axios.put(`${PATH}/${employee.id}`, employee);
+    //res.data is the updated course
+    dispatch({type: 'tasks/taskUpdated', payload: res.data});
   } catch(err) {
     console.error(err);
   }
